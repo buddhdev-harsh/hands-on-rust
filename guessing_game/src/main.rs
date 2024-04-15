@@ -1,10 +1,10 @@
 // // use std::io;
 
 
-// #[allow(dead_code)]
+#![allow(dead_code)]
 // #[allow(unused_variables)]
-// // mod modules;
-
+mod modules;
+use modules::enums::enums_activity;
 // // use modules::if_else::check_number;
 // // use modules::loops::{while_loop, for_loop, this_loop};
 // // use modules::ref_bor::{borrow, refs};
@@ -105,60 +105,6 @@
 // //     b = c;
 // //   }
 // // }
-use memchr::memrchr as find_char_reverse;
-#[allow(unused_variables)]
-#[allow(unused_assignments)]
-
-fn parse(line: &str) {
-  let mut filter_index_start: usize = 0;
-  let mut filter_index_end: usize = line.len();
-
-  let mut exception = false;
-  if line.starts_with("@@") {
-      filter_index_start += 2;
-      exception = true;
-      print!("1");
-  }
-
-  let maybe_options_index: Option<usize> = find_char_reverse(b'$', line.as_bytes());
-  println!("{:?} 2", maybe_options_index);
-
-  if let Some(options_index) = maybe_options_index {
-      filter_index_end = options_index;
-
-      // slicing here is safe; the first byte after '$' will be a character boundary
-      let raw_options = &line[filter_index_end + 1..];
-  println!("{:?} 3", raw_options);
-
-      // options = Some(parse_filter_options(raw_options)?);
-  }
-
-  let left_anchor = if line[filter_index_start..].starts_with("||") {
-      filter_index_start += 2;
-      println!("|| 4");
-  } else if line[filter_index_start..].starts_with('|') {
-      filter_index_start += 1;
-      println!("| 5");
-  } else {
-      println!("none 6");
-  };
-  println!("{:?} 7", left_anchor);
-
-  let right_anchor = if filter_index_end > 0 && filter_index_end > filter_index_start && line[..filter_index_end].ends_with('|') {
-      filter_index_end -= 1;
-     print!("| 8");
-  } else {
-    println!("none 9");
-  };
-  println!("{:?} 10", right_anchor);
-
-  let pattern = &line[filter_index_start..filter_index_end];
-
-  println!("Done");
-}
-
 fn main(){
-  let test = r"/^https?:\/\/[a-z]{8,15}\.top\/[a-z]{4,}\.json$/$xhr,3p,match-case";
-  parse(test);
-
+  enums_activity();
 }

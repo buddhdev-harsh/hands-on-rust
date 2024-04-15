@@ -1,3 +1,6 @@
+
+#![allow(dead_code)]
+
 pub fn while_loop(mut count: i32){
   
   while count != 40 {

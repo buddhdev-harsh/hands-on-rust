@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 pub fn refs(v:Vec<i32>, v2:Vec<i32>) -> (Vec<i32>, Vec<i32>){
   for (count, value) in v.iter().enumerate(){
     println!("printing vec: index : {}, value: {}", count, value);

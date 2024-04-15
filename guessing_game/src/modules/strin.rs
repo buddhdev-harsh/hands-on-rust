@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 pub fn checks(name: &mut String) -> String {
   let lastname = "bdbdbd";
   

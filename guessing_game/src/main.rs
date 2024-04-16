@@ -4,7 +4,10 @@
 #![allow(dead_code)]
 // #[allow(unused_variables)]
 mod modules;
-use modules::enums::enums_activity;
+mod module_a;
+// use modules::enums::enums_activity;
+// use crate::modules::if_else::check_number;
+use module_a::submodule::function_in_submodule;
 // // use modules::if_else::check_number;
 // // use modules::loops::{while_loop, for_loop, this_loop};
 // // use modules::ref_bor::{borrow, refs};
@@ -106,5 +109,5 @@ use modules::enums::enums_activity;
 // //   }
 // // }
 fn main(){
-  enums_activity();
+  function_in_submodule();
 }
